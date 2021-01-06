@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+    <title>My Chart.Js</title>
+</head>
+<body>
+    <div clas="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d'); 
+
+        // Global options
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 20;
+        Chart.defaults.global.defaultFontColor = '#000';
+
+        let massPopChart = new Chart (myChart, {
+                type:'pie', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                data :{
+                        labels:['New Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Bangalore', 'Hyderabad'],
+                        datasets:[{
+                            label : 'Population',
+                            data:[
+                                190,
+                                184,
+                                149,
+                                71,
+                                84,
+                                68
+                            ],
+                            //backgroundColor : 'maroon';
+                            backgroundColor : [
+                                'maroon',
+                                'blue',
+                                'green',
+                                'red',
+                                'gray',
+                                'teal'
+                            ],
+                            borderWidth : 4,
+                            borderColor : '#FFFF00',
+                            hoverBorderWidth : 3,
+                            hoverBorderColor : '#000'
+
+                        }]
+                },
+                options:{
+                    title:{
+                        display : true,
+                        text : 'Top 6 Largest Populated Cities In India',
+                        fontSize : 30
+                    },
+                    legend:{
+                        //display : false,
+                        position : 'left',
+                        labels:{
+                            fontColor :'pink',
+                        }
+                    },
+                    layout:{
+                        padding:{
+                            left:50,
+                            right:50,
+                            bottom:10,
+                            top:10
+                        }
+                    },
+                    tooltips:{
+                        enabled:true
+                    }
+                }
+        });
+    </script>
+</body>
+</html>
